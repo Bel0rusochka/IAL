@@ -1,4 +1,4 @@
-#include "reader.c"
+#include "reader.h"
 
 
 int main() {
