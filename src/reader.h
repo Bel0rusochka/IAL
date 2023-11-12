@@ -13,7 +13,6 @@ typedef enum ReaderState
     START,
     NODE_1, NODE_2,
     VALUE,
-    END
 } readerState;
 
 void ReadGrafs();

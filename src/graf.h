@@ -8,12 +8,10 @@
 #include <string.h>
 
 
-typedef enum ReaderState
+typedef enum Graf
 {
-    START,
-    NODE_1, NODE_2,
-    VALUE,
-} readerState;
+    va
+} graf;
 
 void ReadGrafs();
 
