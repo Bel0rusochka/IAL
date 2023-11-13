@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define MAX_EDGES 4
+#define MAX_EDGES 40
 
 struct edge_item;
 
@@ -34,7 +34,7 @@ void add_edge(graf_item *graf, node_item *node_itm_from, node_item *node_itm_to,
 void init_graf(graf_item *graf);
 void add_node(graf_item *graf, node_item* node);
 bool search_node(graf_item *graf, node_item *node);
-node_item* find_node(graf_item *graf, char name); 
+node_item* get_node(graf_item *graf, char name); 
 void delete_graf(graf_item *graf);
 
 #endif

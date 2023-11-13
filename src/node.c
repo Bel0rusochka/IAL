@@ -29,7 +29,7 @@ void init_node(node_item *node_itm, char name){
     node_itm->num_edges = 0;
 }
 
-node_item* find_node(graf_item *graf, char name) {
+node_item* get_node(graf_item *graf, char name) {
     for (int i = 0; i < graf->size; i++){
         if (graf->nodes[i].name == name){
             return &graf->nodes[i];
@@ -41,11 +41,13 @@ node_item* find_node(graf_item *graf, char name) {
 
 void add_edge(graf_item *graf, node_item *node_itm_from, node_item *node_itm_to,int value ){
     
-    node_item *tmp = find_node(graf, node_itm_from->name);
+    node_item *tmp = get_node(graf, node_itm_from->name);
 
     if (tmp->num_edges < MAX_EDGES && tmp!=NULL) {
         edge_item *new_edge = (edge_item *)malloc(sizeof(edge_item));
-        new_edge->node = node_itm_to;
+        new_edge->node_from = node_itm_from;
+        new_edge->node_to = node_itm_to;
+        
         new_edge->value = value;
         tmp->edge[tmp->num_edges] = new_edge;
         tmp->num_edges++;
@@ -65,6 +67,5 @@ void delete_graf(graf_item *graf){
     }
 
     free(graf->nodes);
-
     graf->size = 0;
 }

@@ -11,10 +11,11 @@ struct node_item;
 
 typedef struct edge_item{
     int value;
-    struct node_item *node;
+    struct node_item *node_from;
+    struct node_item *node_to;
 }edge_item;
 
 
-void init_edge(edge_item* edge,int value,  struct node_item *node_itm);
+void init_edge(edge_item* edge,int value,  struct node_item *node_from, struct node_item *node_to);
 
 #endif

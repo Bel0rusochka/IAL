@@ -1,12 +1,13 @@
 #include "reader.h"
 #include "edge.h"
 #include "node.h"
+#include "algorithm.h"
 
 
 void ReadGrafs() {
 
     FILE* ptr;
-    ptr = fopen("./grafs/1.txt", "r");
+    ptr = fopen("./grafs/graf_1.txt", "r");
 
     if (NULL == ptr) {
         fprintf(stderr, "File can't be opened \n");
@@ -51,13 +52,14 @@ void ReadGrafs() {
     free(new_node_from);
     free(new_node_to);
     fclose(ptr);
-    for(int i = 0; i<graf.size; i++){
+    start_algorithm(graf);
+    // for(int i = 0; i<graf.size; i++){
         
-        for(int j = 0; j<graf.nodes[i].num_edges; j++){
-            printf("From %c to %c for %i\n",graf.nodes[i].name,graf.nodes[i].edge[j]->node->name, graf.nodes[i].edge[j]->value);
-        }
+    //     for(int j = 0; j<graf.nodes[i].num_edges; j++){
+    //         printf("From %c to %c for %i\n",graf.nodes[i].edge[j]->node_from->name,graf.nodes[i].edge[j]->node_to->name, graf.nodes[i].edge[j]->value);
+    //     }
 
-    }
+    // }
 
     delete_graf(&graf);
 }
