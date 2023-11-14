@@ -40,10 +40,14 @@ node_item* get_node(graf_item *graf, char name) {
 }
 
 void add_edge(graf_item *graf, node_item *node_itm_from, node_item *node_itm_to,int value ){
-    
-    node_item *tmp = get_node(graf, node_itm_from->name);
 
-    if (tmp->num_edges < MAX_EDGES && tmp!=NULL) {
+    node_item *tmp = get_node(graf, node_itm_from->name);
+    if(tmp==NULL){
+        fprintf(stderr,"Error: Using an uninitialized variable\n");
+        exit(3);
+    }
+    
+    if (tmp->num_edges < MAX_EDGES) {
         edge_item *new_edge = (edge_item *)malloc(sizeof(edge_item));
         new_edge->node_from = node_itm_from;
         new_edge->node_to = node_itm_to;
@@ -53,8 +57,8 @@ void add_edge(graf_item *graf, node_item *node_itm_from, node_item *node_itm_to,
         tmp->num_edges++;
 
     }else{
-        fprintf(stderr,"Error: Node has reached the maximum number of edges.\n");
-        exit(2);
+        fprintf(stderr,"Error: Node has reached the maximum number of edges\n");
+        exit(4);
     }
 }
 

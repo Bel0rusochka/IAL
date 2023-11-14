@@ -38,7 +38,5 @@ edge_item getActiveEdge_list(list *lst);
 
 void next_list(list *lst);
 
-void previos_list(list *lst);
-
 void printList(list *lst);
 #endif

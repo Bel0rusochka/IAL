@@ -22,11 +22,9 @@ typedef struct node_item{
 
 
 void init_node(node_item *node_it, char name);
-// void graf_insert(graf *graf_it, int *value);
-// void graf_delete_all(graf *graf_it);
 
 typedef struct graf_item{
-    node_item *nodes;     // pole uzl 
+    node_item *nodes; 
     int size;   
 }graf_item;
 

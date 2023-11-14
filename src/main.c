@@ -1,7 +1,7 @@
 #include "reader.h"
 
 
-int main() {
+int main(){
 
     ReadGrafs();
     return 0;
