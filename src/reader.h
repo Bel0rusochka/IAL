@@ -3,8 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
+#include "edge.h"
+#include "node.h"
+#include "algorithm.h"
 
 typedef enum ReaderState
 {
@@ -13,7 +14,5 @@ typedef enum ReaderState
     VALUE,
     END
 } readerState;
-
-void ReadGrafs();
-
+void ReadGraf(graf_item *graf, node_item **nodesArray, size_t *nodesCount, char* file_path);
 #endif

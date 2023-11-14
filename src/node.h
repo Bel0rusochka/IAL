@@ -3,11 +3,13 @@
 
 
 
-#include "edge.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include "edge.h"
+
 
 #define MAX_EDGES 40
 
