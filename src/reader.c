@@ -71,22 +71,19 @@ void ReadGraf(graf_item *graf, node_item **nodesArray, size_t *nodesCount, char 
                 is_negative = true;
             }
             //Reading value of edge between nodes, and adding scraped edges to node_from and node_to(we have to add edge in both directions) after reading closing bracket
-            if (is_digit(ch)) {
+            if (is_digit(ch)){
                 value = 10 * value + (is_negative ? -1 : 1) * (ch - '0');
                 is_negative = false;  // Reset the flag
-            } else if (ch == ')') {
+            }else if (ch == ')'){
                 // if the edge was already declared, throw an error
                 for (int i = 0; i < graf->nodes->num_edges; i++) {
                     char edge_from = graf->nodes->edge[i]->node_from->name;
                     char edge_to = graf->nodes->edge[i]->node_to->name;
 
-                    if (edge_from == new_node_from->name &&
-                        edge_to == new_node_to->name
-                        || edge_from == new_node_to->name &&
-                           edge_to == new_node_from->name) {
+                    if ((edge_from == new_node_from->name && edge_to == new_node_to->name) || (edge_from == new_node_to->name && edge_to == new_node_from->name)){
                         fprintf(stderr, "Error: Edge between %c and %c was already declared\n", new_node_from->name,
                                 new_node_to->name);
-                        exit(1);
+                        exit(6);
                     }
                 }
 
@@ -94,10 +91,10 @@ void ReadGraf(graf_item *graf, node_item **nodesArray, size_t *nodesCount, char 
                 add_edge(graf, new_node_to, new_node_from, value);
                 state = END;
                 value = 0;
-            } else if (ch != '-') {
+            }else if (ch != '-'){
                 //If we have incorrect format of graph in file, we exit program with error
                 fprintf(stderr, "Error: Incorrect graph format in the .txt file\n");
-                exit(1);
+                exit(5);
             }
 
         } else if (state == END && ch == ',') {

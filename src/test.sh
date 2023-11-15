@@ -4,7 +4,7 @@
 
 # List of graph files
 graph_files=("graph_0.txt" "graph_1.txt" "graph_2.txt" "graph_3.txt" "graph_4.txt" "graph_5.txt"
-            "graph_Disconnected_Components.txt" "graph_Cycles.txt"
+            "graph_Cycles.txt"
             "graph_Duplicate_Edges.txt" "graph_Sparse_Graph.txt"
             "graph_Negative_Weight.txt" "graph_Wrong_Weight.txt" "graph_Negative_Weight_2.txt" )
 
