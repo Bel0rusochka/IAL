@@ -72,6 +72,7 @@ void start_algorithm(graf_item graf){
     }
     
     //Removing start node from the set of nodes that have not yet been processed
+    printf("Start node: %c\n", graf.nodes[start_pos].name);
     removeFromSet(&nodeNameSet, graf.nodes[start_pos].name);
 
     //Adding all edges from start node to the list of available edges

@@ -1,8 +1,9 @@
 CC=gcc
 CFLAGS=-Wall -std=c11 -pedantic -lm
+FILES=main.c node.c edge.c reader.c algorithm.c list.c set.c
 
-main: main.c node.c edge.c reader.c algorithm.c list.c set.c
-	$(CC) $(CFLAGS) -o $@ $^
+main: $(FILES)
+	$(CC) $(CFLAGS) -o $@ $(FILES)
 
 clean:
 	rm -f main
