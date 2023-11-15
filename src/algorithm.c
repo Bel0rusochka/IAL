@@ -89,8 +89,8 @@ void start_algorithm(graf_item graf){
         printf("%i)_______________\n", i);
         printList(&queueProcesEdge);
         printSet(&nodeNameSet);
-    } 
-    
+    }
+
     //Freeing memory allocated for data structures
     freeList(&listAvailableEdge);
     freeList(&queueProcesEdge);
