@@ -1,7 +1,9 @@
 #include "set.h"
 
 
-void initSet(CharSet *set, size_t capacity) {
+//Implementation of the set.h header file
+
+void initSet(CharSet *set, size_t capacity){
     set->elements = (char *)malloc(capacity * sizeof(char));
     if (set->elements == NULL) {
         fprintf(stderr, "Error: Memory allocation failed\n");
@@ -11,7 +13,8 @@ void initSet(CharSet *set, size_t capacity) {
     set->capacity = capacity;
 }
 
-void addToSet(CharSet *set, char value) {
+
+void addToSet(CharSet *set, char value){
 
     if (set->size < set->capacity) {
         set->elements[set->size++] = value;
@@ -21,7 +24,8 @@ void addToSet(CharSet *set, char value) {
     }
 }
 
-void removeFromSet(CharSet *set, char value) {
+
+void removeFromSet(CharSet *set, char value){
     for (size_t i = 0; i < set->size; ++i) {
         if (set->elements[i] == value) {
             for (size_t j = i; j < set->size - 1; ++j) {
@@ -33,7 +37,8 @@ void removeFromSet(CharSet *set, char value) {
     }
 }
 
-bool containsInSet(const CharSet *set, char value) {
+
+bool containsInSet(const CharSet *set, char value){
 
     for (size_t i = 0; i < set->size; ++i) {
         if (set->elements[i] == value) {
@@ -43,7 +48,8 @@ bool containsInSet(const CharSet *set, char value) {
     return false;
 }
 
-void printSet(const CharSet *set) {
+
+void printSet(const CharSet *set){
     printf("Set: { ");
     for (size_t i = 0; i < set->size; ++i) {
         printf("%c ", set->elements[i]);
@@ -51,7 +57,8 @@ void printSet(const CharSet *set) {
     printf("}\n");
 }
 
-void freeSet(CharSet *set) {
+
+void freeSet(CharSet *set){
     free(set->elements);
     set->elements = NULL;
     set->size = 0;

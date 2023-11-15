@@ -1,9 +1,8 @@
 #include "list.h"
 
-
+//Implementation of the list.h header file
 
 void init_list(list *lst){
-	
 	lst -> firstElement = NULL;
 	lst -> activeElement = NULL;
 	lst -> lastElement = NULL;
@@ -19,7 +18,6 @@ void freeList(list *lst){
 	}
 	lst -> lastElement = NULL;
 	lst -> activeElement = NULL;
-
 }
 
 
@@ -60,6 +58,7 @@ edge_item getFirstEdge_list(list *lst) {
 	}
 }
 
+
 void deleActiveItem_list(list *lst) {
     if (lst->activeElement != NULL) {
         listElementPtr nextElement = lst->activeElement->nextElement;
@@ -82,6 +81,7 @@ void deleActiveItem_list(list *lst) {
         }
     }
 }
+
 
 void deleteEdgeFromList(list *lst, const edge_item *edgeToDelete){
     setFirstActive_list(lst);
