@@ -64,4 +64,3 @@ void freeSet(CharSet *set){
     set->size = 0;
     set->capacity = 0;
 }
-

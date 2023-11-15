@@ -88,7 +88,3 @@ node_item* get_node(graf_item *graf, char name);
 void delete_graf(graf_item *graf);
 
 #endif
-
-
-
-
