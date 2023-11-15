@@ -17,6 +17,12 @@ typedef enum ReaderState
     END
 } readerState;
 
+/**
+ *
+ * @param ch
+ * @return true or false
+ */
+bool is_digit(char ch);
 
 /**
  * @brief Function for reading node from file, and adding it to the graph. In file we have representation of edges in format: (node_from, node_to,value).
