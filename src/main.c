@@ -1,3 +1,6 @@
+/**
+* Vytvořte program pro hledání kostry grafu s minimálním ohodnocením pro ohodnocené neorientované grafy.
+*/
 #include "reader.h"
 
 #define MAX_NODES 512
