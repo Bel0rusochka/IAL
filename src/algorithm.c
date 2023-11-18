@@ -12,7 +12,7 @@ void algorithm_step(list *listAvailableEdge, CharSet* set, list *queueProcesEdge
 
     /*
     Finding minimum edge in the list of available edges and checking if node_to of this edge is in the set of nodes that have not yet been processed.
-    When we find minimum edge, we need change min_edge1.value to value of this edge and min_edge1 to this edge.
+    When we find minimum edge, we need to change min_edge1.value to value of this edge and min_edge1 to this edge.
     */
     while (listAvailableEdge->activeElement != NULL){
         edge_item edge = getActiveEdge_list(listAvailableEdge);
@@ -25,9 +25,9 @@ void algorithm_step(list *listAvailableEdge, CharSet* set, list *queueProcesEdge
     }
 
     /*
-    There implementation of adding edges from the new processed node to the list of available edges.
-    min_edge1.node_to have name of new processed node, but not all edges from this node, 
-    so we need to find this node in the graph, and from him take all
+    The implementation of adding edges from the new processed node to the list of available edges.
+    min_edge1.node_to have the name of the new processed node, but not all the edges from this node, 
+    so we need to find this node in the graph, and take everything from him.
     */
     node_item *node_tmp = get_node(graf,min_edge1.node_to->name);
     for(int i =0; i<node_tmp->num_edges; i++){
@@ -39,7 +39,7 @@ void algorithm_step(list *listAvailableEdge, CharSet* set, list *queueProcesEdge
     //Removing find minimum edge from the list of available edges
     deleteEdgeFromList(listAvailableEdge, &min_edge1);
 
-    //Initializing edge wich is opposite to min_edge1, because that edge is the same edge, but in opposite direction
+    //Initializing edge which is opposite to min_edge1, because that edge is the same edge, but in opposite direction
     edge_item min_edge2;
     init_edge(&min_edge2, min_edge1.value, min_edge1.node_to, min_edge1.node_from);
     deleteEdgeFromList(listAvailableEdge, &min_edge2);
@@ -50,13 +50,13 @@ void algorithm_step(list *listAvailableEdge, CharSet* set, list *queueProcesEdge
 
 
 void start_algorithm(graf_item graf){
-    
-    //Choosing random start node like in Prim's algorithm
+
+    //Choosing random start node like in Primm's algorithm
     srand(time(NULL));
     int start_pos = 0+rand()%graf.size;
 
 
-    //Initializing all necessary data structures like list, set and queue(it also list, but it is used like queue)
+    //Initializing all necessary data structures like list, set and queue(it is also a list, but it is used like a queue)
     CharSet nodeNameSet;
     initSet(&nodeNameSet, graf.size);
 
