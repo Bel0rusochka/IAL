@@ -28,9 +28,7 @@ int main(int argc, char *argv[]){
     init_graf(&graf);
 
     /*
-    Allocating memory for the array of nodes. At the end of the program,
-    the memory allocated for the array of nodes is freed. 
-    It is necessary to avoid memory leaks.
+    Allocating memory for the array of nodes. 
     */
     node_item *nodesArray[MAX_NODES];
     size_t nodesCount = 0;

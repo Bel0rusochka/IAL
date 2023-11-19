@@ -51,7 +51,7 @@ void algorithm_step(list *listAvailableEdge, CharSet* set, list *queueProcesEdge
 
 void start_algorithm(graf_item graf){
 
-    //Choosing random start node like in Primm's algorithm
+    //Choosing random starting node, like in Prim's algorithm
     srand(time(NULL));
     int start_pos = 0+rand()%graf.size;
 
@@ -80,7 +80,7 @@ void start_algorithm(graf_item graf){
         insertLast_list(&listAvailableEdge, *graf.nodes[start_pos].edge[i]);
     }
     
-    //Starting the algorithm of finding the shortest paths in the graph and outputting the result to the consol(was implemented special function for this)
+    //Starting the algorithm of finding the shortest paths in the graph and outputting the result to the consol(implemented special function for this)
     printf("1)_______________\n");
     printList(&queueProcesEdge);
     printSet(&nodeNameSet);
