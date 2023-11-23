@@ -4,6 +4,7 @@
 
 // State for negative number
 bool is_negative = false;
+bool is_first_symbol = true;
 
 // Function for checking if char is digit
 bool is_digit(char ch) {
@@ -64,16 +65,21 @@ void ReadGraf(graf_item *graf, node_item **nodesArray, size_t *nodesCount, char 
                 init_node(new_node_to, tmp_char);
                 add_node(graf, new_node_to);
                 nodesArray[(*nodesCount)++] = new_node_to;
+                is_first_symbol = true;
                 state = VALUE;
             }
         } else if (state == VALUE && ch != ',') {
-            if (ch == '-') {
+            if (is_first_symbol && ch == '-') {
                 is_negative = true;
+            } else if (ch == '-' && !is_first_symbol) {
+                fprintf(stderr, "Error: Incorrect graph format in the .txt file\n");
+                exit(5);
             }
             //Reading value of edge between nodes, and adding scraped edges to node_from and node_to(we have to add edge in both directions) after reading closing bracket
             if (is_digit(ch)){
                 value = 10 * value + (is_negative ? -1 : 1) * (ch - '0');
                 is_negative = false;  // Reset the flag
+                is_first_symbol = false;
             }else if (ch == ')'){
                 // if the edge was already declared, throw an error
                 for (int i = 0; i < graf->nodes->num_edges; i++) {
@@ -96,7 +102,6 @@ void ReadGraf(graf_item *graf, node_item **nodesArray, size_t *nodesCount, char 
                 fprintf(stderr, "Error: Incorrect graph format in the .txt file\n");
                 exit(5);
             }
-
         } else if (state == END && ch == ',') {
             state = START;
         } else {
